@@ -5,29 +5,39 @@ const store = {
         //lists is a series of ID numbers for lists
         lists: {
             123: true, 
-            234: true, 
-            345: true
-        }
-            
+            234: true
+        }    
     },
     lists : {
         123: {
             title: 'My lovely list',
-            items: [
-                'Do a thing',
-                'Do another thing',
-                'Do yet a third thing',
-                'And a fourth'
-            ]
+            items: {
+                'abacdag': {
+                   'Do a thing': true,
+                },
+                'bjaoisdhf': {
+                   'Do another thing': false
+                },
+                'afaioehr': {
+                   'Do yet a third thing': true
+                }
+            }
         },
         234: {
             title: 'My not quite as lovely list',
-            items: [
-                'Do a thing',
-                'Do another thing',
-                'Do yet a third thing',
-                'And a fourth'
-            ]
+            items: {
+                'abacdag': {
+                    'Do a thing': true,
+                },
+                'bjaoisdhf': {
+                    'Do another thing': false
+                },
+                'afaioehr': {
+                    'Do yet a third thing': true
+                }
+            }
         }
     }
 }
+
+

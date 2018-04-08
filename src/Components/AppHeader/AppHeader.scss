@@ -4,9 +4,10 @@
     background-image: linear-gradient(
         to right bottom,
         rgba($primary-color-light, .6),
-        rgba($primary-color, .9)
+        rgba($primary-color, .6)
     );
-    padding: 3rem 0rem;
+    padding: 8rem 0rem;
+    position: relative;
 
    &__title {
         display:block;
@@ -21,5 +22,21 @@
         font-weight:400;
         margin-top:1.2rem;
         margin-bottom:2rem;
+   }
+   &__video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        opacity: .15;
+        overflow: hidden;
+    
+        &__content {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
    }
 }
