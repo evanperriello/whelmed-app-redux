@@ -1,0 +1,41 @@
+.add-item__form {
+  display: flex;
+  justify-content: stretch;
+  margin-bottom: .75em;
+  border-radius: .75rem;
+  transition: all .2s; }
+  .add-item__form:focus-within {
+    outline: none;
+    box-shadow: 0 0 0 2pt rgba(18, 143, 206, 0.5); }
+
+.add-item__input {
+  font-size: 2.1rem;
+  line-height: 2.5rem;
+  padding: .9rem 2rem;
+  border: 1px #ddd solid;
+  border-radius: .75rem 0 0 .75rem;
+  color: #999;
+  font-weight: 300;
+  text-align: center;
+  transition: all .2s; }
+  .add-item__input:focus {
+    outline: none; }
+  .add-item__input::placeholder {
+    color: #999;
+    font-weight: 300; }
+
+.add-item__button {
+  border-radius: 0 .75rem .75rem 0;
+  border: none;
+  background-color: #DCDCDC;
+  color: white;
+  font-size: 4rem;
+  line-height: 1rem;
+  padding: 0 1rem;
+  transition: all .2s; }
+  .add-item__button:hover {
+    cursor: pointer;
+    background-color: #128fce; }
+  .add-item__button:focus {
+    outline: none;
+    background-color: #128fce; }
