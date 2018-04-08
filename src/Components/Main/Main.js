@@ -1,12 +1,12 @@
 import React from 'react';
 import './Main.css';
 
-import Lists from '../../Containers/Lists/Lists';
+import AllLists from '../../Containers/AllLists/AllLists';
 
 const Main = (props)=>{
     return (
         <main className="main-section">
-            <Lists/>
+            <AllLists/>
         </main>
     );
 }

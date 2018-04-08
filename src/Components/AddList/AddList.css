@@ -1,0 +1,41 @@
+.add-list__form {
+  display: flex;
+  justify-content: stretch;
+  margin-bottom: .75em;
+  border-radius: .75rem;
+  transition: all .2s; }
+  .add-list__form:focus-within {
+    outline: none;
+    box-shadow: 0 0 0 2pt rgba(18, 143, 206, 0.5); }
+
+.add-list__input {
+  font-size: 2.1rem;
+  line-height: 2.5rem;
+  padding: .9rem 2rem;
+  border: 1px #ddd solid;
+  border-radius: .75rem 0 0 .75rem;
+  color: #999;
+  font-weight: 300;
+  text-align: center;
+  transition: all .2s; }
+  .add-list__input:focus {
+    outline: none; }
+  .add-list__input::placeholder {
+    color: #999;
+    font-weight: 300; }
+
+.add-list__button {
+  border-radius: 0 .75rem .75rem 0;
+  border: none;
+  background-color: #DCDCDC;
+  color: white;
+  font-size: 4rem;
+  line-height: 1rem;
+  padding: 0 1rem;
+  transition: all .2s; }
+  .add-list__button:hover {
+    cursor: pointer;
+    background-color: #128fce; }
+  .add-list__button:focus {
+    outline: none;
+    background-color: #128fce; }
