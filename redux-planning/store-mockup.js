@@ -2,7 +2,7 @@ const store = {
     user: {
         name: Bobo,
         userId: 12345,
-        //lists is a series of ID numbers for lists
+        //lists is a series of ID numbers for lists. This is needed by the AllLists container.
         lists: {
             123: true, 
             234: true

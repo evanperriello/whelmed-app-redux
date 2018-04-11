@@ -12,3 +12,8 @@
   padding-left: 0;
   text-align: center;
   font-weight: 300; }
+  .single-list__delete {
+    font-weight: 600;
+    color: #b3afaf;
+    display: flex;
+    justify-content: center; }
