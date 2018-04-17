@@ -1,25 +1,31 @@
+import uuid from 'uuid/v1';
 //Add an item
 export const addItem = (text) =>({
     type: 'ADD_ITEM',
-    text
+    text,
+    itemId: uuid()
 });
 //Delete an item
 export const deleteItem = (itemId)=>({
-    type: 'DELETE_ITEM'
+    type: 'DELETE_ITEM',
+    itemId
 });
 //Add a list
 export const addList = (title)=>({
     type: 'ADD_LIST',
-    title
+    title,
+    listId: uuid() 
 });
 //Delete a list
 export const deleteList = (listId)=>({
-    type: 'DELETE_LIST'
+    type: 'DELETE_LIST',
+    listId
 });
 
 //Check off an item
 export const toggleItem = (itemId)=>({
-    type:'TOGGLE_ITEM'
+    type:'TOGGLE_ITEM',
+    itemId
 });
 
 //show/hide done
