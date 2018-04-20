@@ -4,7 +4,10 @@ import './ListItem.css';
 const ListItem = (props)=>{
     const { itemId, text, unfinished } = props;
     const textClass = !unfinished ? 'list-item__text--done' : '';
-    const inputCheck = !unfinished ? <input type='checkbox' className='list-item__check' defaultChecked/> : <input type='checkbox' className='list-item__check'/>;
+    const inputCheck = !unfinished ? 
+        <input type='checkbox' className='list-item__check' defaultChecked/> : 
+        <input type='checkbox' className='list-item__check'/>;
+        
     return (
         <li className="list-item">
             {inputCheck}
