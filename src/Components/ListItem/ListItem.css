@@ -11,6 +11,9 @@
   .list-item__text {
     line-height: 2.5rem;
     padding: .9rem 2rem; }
+    .list-item__text--done {
+      text-decoration: line-through;
+      color: #c9c6c6; }
   .list-item__delete {
     border-radius: 0 .75rem .75rem 0;
     border: none;

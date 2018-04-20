@@ -1,6 +1,48 @@
 export const sample = (state=[], action)=>{
-    return ([    'List1',
-    'List2']);
+    return ({
+        123:{
+            title: 'My lovely list',
+            items: [
+                {
+                    text: 'Do a thing',
+                    id: 'afdashfjhwoaeh',
+                    unfinished: true
+                },
+                {
+                    text: 'Do another thing',
+                    id: 'xvbxchsfhd',
+                    unfinished: false
+                },
+                {
+                    text: 'Do yet a third thing',
+                    id: 'aasdfdhh',
+                    unfinished: true
+                },
+            ]
+
+        },
+        234: {
+            title: 'My not as lovely list',
+            items: [
+                {
+                    text: 'Do a thing',
+                    id: 'afdashfjhwoaeh',
+                    unfinished: true
+                },
+                {
+                    text: 'Do another thing',
+                    id: 'xvbxchsfhd',
+                    unfinished: false
+                },
+                {
+                    text: 'Do yet a third thing',
+                    id: 'aasdfdhh',
+                    unfinished: true
+                },
+            ]
+
+        },
+    });
 }
 
 export const userLists = (state=[], action)=>{

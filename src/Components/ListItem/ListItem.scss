@@ -12,6 +12,11 @@
     &__text {
         line-height:2.5rem;
         padding:.9rem 2rem;
+
+        &--done {
+            text-decoration: line-through;
+            color:rgb(201, 198, 198);
+        }
     }
     &__delete {
         border-radius: 0 .75rem .75rem 0;

@@ -7,17 +7,27 @@ import AddItem from '../AddItem/AddItem';
 
 
 const List = (props)=>{
+    const {title, listId, listItems} = props;
     return (
         <div>
             <h3 className="list-title">
-                {props.title}
+                {title}
             </h3>
             <ul className="single-list">
-                {props.listItems.map((item)=>{return (<ListItem key={item.id}/>)})}
+                {listItems.map(
+                    (item)=>(
+                        <ListItem 
+                            key={item.id}
+                            itemId = {item.id}
+                            text={item.text} 
+                            unfinished={item.unfinished}
+                        />
+                    )
+                )}
                 <AddItem/>
-                <div className='single-list__delete'>
-                    <span>delete list </span> 
+                <div className='single-list__delete'> 
                     <img src={TrashIcon} alt='trash can icon'/>
+                    <span>&nbsp; delete list</span>
                 </div>
             </ul>
         </div>

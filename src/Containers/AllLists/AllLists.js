@@ -7,35 +7,17 @@ import AddList from '../../Components/AddList/AddList';
 import {addList} from '../../redux-planning/actions';
 import './AllLists.css';
  
-const testingListItems = [
-    {
-        id: 1,
-        term: 'some text',
-        active: true
-    },
-    {
-        id: 2,
-        term: 'other text',
-        active: true
-    },
-    {
-        id: 3,
-        term: 'yet other text',
-        active: true
-    }
-];
-const listTitle = "A List";
-
 class Lists extends Component {
-    
     render(){
+        const {lists} = this.props;
         return (
             <div className="all-lists">
-                {this.props.lists.map((list)=>{
+                {Object.keys(lists).map((listId)=>{
+                    const {title, items} = lists[listId];
                     return (
-                        <div className="list-container">
-                            <List title={listTitle} listItems={testingListItems}/>
-                        </div>   
+                        <div key={listId} className="list-container">
+                            <List listId={listId} title={title} listItems={items}/>
+                        </div>
                     )
                 })}
                 
