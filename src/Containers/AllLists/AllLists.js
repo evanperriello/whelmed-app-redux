@@ -4,12 +4,21 @@ import {connect} from 'react-redux';
 import List from '../../Components/List/List';
 import AddList from '../../Components/AddList/AddList';
 
-import {addList} from '../../redux-planning/actions';
+import {sampleAction, addList} from '../../actions/index';
+import {bindActionCreators} from 'redux';
 import './AllLists.css';
  
 class Lists extends Component {
+    constructor(props){
+        super(props);
+        this.handleButtonClick = this.handleButtonClick.bind(this);
+    }
+    handleButtonClick(e){
+        e.preventDefault();
+        this.props.sampleAction();
+    }
     render(){
-        const {lists} = this.props;
+        const {lists, sampleAction} = this.props;
         return (
             <div className="all-lists">
                 {Object.keys(lists).map((listId)=>{
@@ -20,19 +29,26 @@ class Lists extends Component {
                         </div>
                     )
                 })}
-                
-                <AddList/>
+                <button onClick={this.handleButtonClick}>Give me some sweet sample data</button>
+                <AddList submitNewList={this.props.addList}/>
             </div>
         );
     }
 }
 
 const mapStateToProps = state => ({
-        lists: state.sample
+        lists: state.allLists
     });
 
-const mapDispatchToProps = dispatch => ({
-    addList: title => dispatch(addList(title))
-})
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators(
+        {
+            sampleAction: sampleAction,
+            addList: addList
+        }, 
+        dispatch
+    );
+    
+}
 
-export default connect(mapStateToProps)(Lists);
+export default connect(mapStateToProps, mapDispatchToProps)(Lists);

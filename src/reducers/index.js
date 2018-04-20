@@ -1,10 +1,9 @@
 import {combineReducers} from 'redux';
-import {allLists, userLists, sample} from './reducers';
+import {allLists, userLists} from './reducers';
 
 const rootReducer = combineReducers({
     allLists,
-    userLists,
-    sample
+    userLists
 })
 
 export default rootReducer;

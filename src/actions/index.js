@@ -1,5 +1,10 @@
 import uuid from 'uuid/v1';
 //Add an item
+
+export const sampleAction = () =>({
+    type: 'SAMPLE_ACTION',
+});
+
 export const addItem = (text) =>({
     type: 'ADD_ITEM',
     text,

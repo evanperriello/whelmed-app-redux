@@ -1,48 +1,59 @@
-export const sample = (state=[], action)=>{
-    return ({
-        123:{
-            title: 'My lovely list',
-            items: [
-                {
-                    text: 'Do a thing',
-                    id: 'afdashfjhwoaeh',
-                    unfinished: true
-                },
-                {
-                    text: 'Do another thing',
-                    id: 'xvbxchsfhd',
-                    unfinished: false
-                },
-                {
-                    text: 'Do yet a third thing',
-                    id: 'aasdfdhh',
-                    unfinished: true
-                },
-            ]
+const sampleLists = {
+    123:{
+        title: 'My lovely list',
+        items: [
+            {
+                text: 'Do a thing',
+                id: 'afdashfjhwoaeh',
+                unfinished: true
+            },
+            {
+                text: 'Do another thing',
+                id: 'xvbxchsfhd',
+                unfinished: false
+            },
+            {
+                text: 'Do yet a third thing',
+                id: 'aasdfdhh',
+                unfinished: true
+            },
+        ]
 
-        },
-        234: {
-            title: 'My not as lovely list',
-            items: [
-                {
-                    text: 'Do a thing',
-                    id: 'afdashfjhwoaeh',
-                    unfinished: true
-                },
-                {
-                    text: 'Do another thing',
-                    id: 'xvbxchsfhd',
-                    unfinished: false
-                },
-                {
-                    text: 'Do yet a third thing',
-                    id: 'aasdfdhh',
-                    unfinished: true
-                },
-            ]
+    },
+    234: {
+        title: 'My not as lovely list',
+        items: [
+            {
+                text: 'Do a thing',
+                id: 'afdashfjhwoaeh',
+                unfinished: true
+            },
+            {
+                text: 'Do another thing',
+                id: 'xvbxchsfhd',
+                unfinished: false
+            },
+            {
+                text: 'Do yet a third thing',
+                id: 'aasdfdhh',
+                unfinished: true
+            },
+        ]
 
-        },
-    });
+    },
+}
+
+export const allLists = (state={}, action)=>{
+    switch(action.type){
+        case 'SAMPLE_ACTION':
+            return (sampleLists);
+        case 'DELETE_LIST':
+            return (
+                state.filter(list=>{return (list.id !== action.listId)})
+            );
+        default:
+            return state;
+}
 }
 
 export const userLists = (state=[], action)=>{
@@ -95,28 +106,24 @@ export const items = (state = [], action)=>{
     }
 }
 
-export const allLists = (state=['List1', 'List2'], action) =>{
-    switch(action.type){
-        case 'ADD_LIST':
-            return (
-                state
-                // [
-                //     ...state,
-                //     {
-                //         title: action.title,
-                //         id: action.listId,
-                //         items: []
-                //     }
-                // ]
-            );
-        case 'DELETE_LIST':
-            return (
-                state.filter(list=>{return (list.id !== action.listId)})
-            );
-        default:
-            return state;
-    }
-}
+// export const allLists = (state=['List1', 'List2'], action) =>{
+//     switch(action.type){
+//         case 'ADD_LIST':
+//             return (
+//                 state
+//                 // [
+//                 //     ...state,
+//                 //     {
+//                 //         title: action.title,
+//                 //         id: action.listId,
+//                 //         items: []
+//                 //     }
+//                 // ]
+//             );
+//         default:
+//             return state;
+//     }
+// }
 
 
 //show/hide done
