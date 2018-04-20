@@ -47,6 +47,16 @@ export const allLists = (state={}, action)=>{
     switch(action.type){
         case 'SAMPLE_ACTION':
             return (sampleLists);
+        case 'ADD_LIST':
+            return (
+                {...state,
+                    //this syntax creates a ComputedPropertyName (i.e., name from variable)
+                    [action.listId]: {
+                        title: action.title,
+                        items: []
+                    }
+                }
+            );
         case 'DELETE_LIST':
             return (
                 state.filter(list=>{return (list.id !== action.listId)})
