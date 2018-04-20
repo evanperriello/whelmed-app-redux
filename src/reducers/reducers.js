@@ -1,3 +1,8 @@
+export const sample = (state=[], action)=>{
+    return ([    'List1',
+    'List2']);
+}
+
 export const userLists = (state=[], action)=>{
     switch(action.type){
         case 'ADD_LIST':
@@ -48,18 +53,19 @@ export const items = (state = [], action)=>{
     }
 }
 
-export const allLists = (state=[], action) =>{
+export const allLists = (state=['List1', 'List2'], action) =>{
     switch(action.type){
         case 'ADD_LIST':
             return (
-                [
-                    ...state,
-                    {
-                        title: action.title,
-                        id: action.listId,
-                        items: []
-                    }
-                ]
+                state
+                // [
+                //     ...state,
+                //     {
+                //         title: action.title,
+                //         id: action.listId,
+                //         items: []
+                //     }
+                // ]
             );
         case 'DELETE_LIST':
             return (

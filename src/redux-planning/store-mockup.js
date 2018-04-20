@@ -8,10 +8,9 @@ const store = {
             234
         ]     
     },
-    lists : [
-        {
+    lists : {
+        123:{
             title: 'My lovely list',
-            id:123,
             items: [
                 {
                     text: 'Do a thing',
@@ -31,9 +30,8 @@ const store = {
             ]
 
         },
-        {
+        234: {
             title: 'My not as lovely list',
-            id:124,
             items: [
                 {
                     text: 'Do a thing',
@@ -53,8 +51,7 @@ const store = {
             ]
 
         },
-    ]
-
+    }
 }
 
 

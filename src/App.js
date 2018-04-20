@@ -16,10 +16,8 @@ class App extends Component {
         <div className="App">
           <AppHeader/>
           <Main/>
-
         </div>
       </Provider>
-
     );
   }
 }
