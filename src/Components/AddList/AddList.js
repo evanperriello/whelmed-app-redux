@@ -13,11 +13,15 @@ class AddList extends Component{
     handleFormSubmit(e){
         e.preventDefault();
         this.props.submitNewList(this.state.title);
+        this.setState({
+            title: ''
+        })
     }
     handleInputChange(e){
         this.setState(
             {title: e.target.value}
         )
+        
     }
     render(){
         return (

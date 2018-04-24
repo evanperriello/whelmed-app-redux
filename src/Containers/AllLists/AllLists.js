@@ -4,21 +4,16 @@ import {connect} from 'react-redux';
 import List from '../../Components/List/List';
 import AddList from '../../Components/AddList/AddList';
 
-import {sampleAction, addList} from '../../actions/index';
+import {addList, addItem} from '../../actions/index';
 import {bindActionCreators} from 'redux';
 import './AllLists.css';
  
 class Lists extends Component {
     constructor(props){
         super(props);
-        this.handleButtonClick = this.handleButtonClick.bind(this);
-    }
-    handleButtonClick(e){
-        e.preventDefault();
-        this.props.sampleAction();
     }
     render(){
-        const {lists, sampleAction} = this.props;
+        const {lists, addList} = this.props;
         return (
             <div className="all-lists">
                 {Object.keys(lists).map((listId)=>{
@@ -29,8 +24,7 @@ class Lists extends Component {
                         </div>
                     )
                 })}
-                <button onClick={this.handleButtonClick}>Give me some sweet sample data</button>
-                <AddList submitNewList={this.props.addList}/>
+                <AddList submitNewList={addList}/>
             </div>
         );
     }
@@ -43,7 +37,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
     return bindActionCreators(
         {
-            sampleAction: sampleAction,
+            
             addList: addList
         }, 
         dispatch

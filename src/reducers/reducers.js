@@ -42,9 +42,14 @@ const sampleLists = {
 
     },
 }
-
+//export const addItem = (text) =>({
+//     type: 'ADD_ITEM',
+//     text,
+//     itemId: uuid()
+// });
 export const allLists = (state={}, action)=>{
     switch(action.type){
+        //TODO: Remove Sample Action Later
         case 'SAMPLE_ACTION':
             return (sampleLists);
         case 'ADD_LIST':
@@ -60,6 +65,10 @@ export const allLists = (state={}, action)=>{
         case 'DELETE_LIST':
             return (
                 state.filter(list=>{return (list.id !== action.listId)})
+            );
+        case 'ADD_ITEM':
+            return (
+                state
             );
         default:
             return state;
