@@ -11,9 +11,10 @@ export const addItem = (items, listId) =>({
     listId
 });
 //Delete an item
-export const deleteItem = (itemId)=>({
+export const deleteItem = (itemId, listId)=>({
     type: 'DELETE_ITEM',
-    itemId
+    itemId,
+    listId
 });
 //Add a list
 export const addList = (title)=>({

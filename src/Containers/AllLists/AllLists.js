@@ -4,8 +4,7 @@ import {connect} from 'react-redux';
 import List from '../../Components/List/List';
 import AddList from '../../Components/AddList/AddList';
 
-
-import {addList, addItem, deleteList} from '../../actions/index';
+import {addList, addItem, deleteList, deleteItem} from '../../actions/index';
 import {bindActionCreators} from 'redux';
 import './AllLists.css';
 import TrashIcon from './../../img/173-bin.svg';
@@ -21,7 +20,7 @@ class Lists extends Component {
     }
 
     render(){
-        const {lists, addList, addItem} = this.props;
+        const {lists, addList, addItem, deleteItem} = this.props;
         return (
             <div className="all-lists">
                 {Object.keys(lists).map((listId)=>{
@@ -32,17 +31,19 @@ class Lists extends Component {
                                 listId={listId} 
                                 title={title} 
                                 listItems={items} 
-                                addItem={addItem} 
-                                deleteList={deleteList}/>
-                                <div 
-                                    className='single-list__delete'
-                                    onClick={
-                                        //we bind this inline instead of in the constructor so that it has access to the variables in this context.
-                                        this.handleDeleteList.bind(this, listId, lists)
-                                    } 
-                                >
-                                    
-                                        <img src={TrashIcon} alt='trash can icon'
+                                addItem={addItem}
+                                deleteItem={deleteItem}
+                                deleteList={deleteList}
+                            />
+
+                            <div 
+                                className='single-list__delete'
+                                onClick={
+                                    //we bind this inline instead of in the constructor so that it has access to the variables in this context.
+                                    this.handleDeleteList.bind(this, listId, lists)
+                                } 
+                            >
+                                    <img src={TrashIcon} alt='trash can icon'
                                 />
                                 <span>&nbsp; delete list</span>
                             </div>
@@ -64,7 +65,8 @@ const mapDispatchToProps = dispatch => {
         {
             addItem,
             addList,
-            deleteList
+            deleteList,
+            deleteItem
         }, 
         dispatch
     );

@@ -12,6 +12,7 @@
   cursor: pointer;
   padding: 1rem;
   background-color: #DCDCDC;
-  border-radius: .7rem; }
+  border-radius: .7rem;
+  transition: all .2s; }
   .single-list__delete:hover {
     background-color: rgba(252, 40, 40, 0.7); }

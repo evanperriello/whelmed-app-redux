@@ -12,10 +12,13 @@ class AddList extends Component{
     }
     handleFormSubmit(e){
         e.preventDefault();
-        this.props.submitNewList(this.state.title);
-        this.setState({
-            title: ''
-        })
+        if (this.state.title){
+            this.props.submitNewList(this.state.title);
+            this.setState({
+                title: ''
+            });
+        }
+       
     }
     handleInputChange(e){
         this.setState(

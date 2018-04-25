@@ -2,7 +2,7 @@ import React from 'react';
 import './ListItem.css';
 //Rendered by List.js component
 const ListItem = (props)=>{
-    const { itemId, text, unfinished } = props;
+    const { itemId, text, unfinished, deleteItem } = props;
     const textClass = !unfinished ? 'list-item__text--done' : '';
     const inputCheck = !unfinished ? 
         <input type='checkbox' className='list-item__check' defaultChecked/> : 
@@ -12,7 +12,7 @@ const ListItem = (props)=>{
         <li className="list-item">
             {inputCheck}
             <span className={`list-item__text ${textClass}`}>{text}</span>
-            <button className='list-item__delete'>x</button>
+            <button className='list-item__delete' onClick={deleteItem}>x</button>
         </li>
     );
 }

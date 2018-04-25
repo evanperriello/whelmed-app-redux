@@ -16,13 +16,18 @@ class List extends Component {
     }
 
     handleAddItem(text){
-        let newItems = [
-            ...this.props.listItems,
-            {text, id: uuid(), unfinished:true }
-        ]
-        this.props.addItem(newItems, this.props.listId);
+        if (text){
+            let newItems = [
+                ...this.props.listItems,
+                {text, id: uuid(), unfinished:true }
+            ]
+            this.props.addItem(newItems, this.props.listId);
+        }
+        
     }
-
+    handleDeleteItem(itemId, listId){
+        this.props.deleteItem(itemId, listId);
+    }
 
     render(){
         const {title, listId, listItems} = this.props;
@@ -39,6 +44,7 @@ class List extends Component {
                                 itemId = {item.id}
                                 text={item.text} 
                                 unfinished={item.unfinished}
+                                deleteItem={this.handleDeleteItem.bind(this, item.id, listId)}
                             />
                         )
                     )}

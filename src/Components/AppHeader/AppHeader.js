@@ -16,7 +16,7 @@ const AppHeader = (props)=>{
             <h1 className="app-header__title">
                 Whelmed
                 <span className="app-header__subtitle">
-                    helping get your todos done
+                    helping get your to-dos done
                 </span>
             </h1>
         

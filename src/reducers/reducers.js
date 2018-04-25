@@ -46,6 +46,18 @@ export const allLists = (state={}, action)=>{
                     }
                 }
             );
+        case 'DELETE_ITEM':
+            return (
+                {
+                    ...state,
+                    [action.listId] : {
+                        ...state[action.listId],
+                        items: state[action.listId].items.filter((item)=>{
+                            return item.id !== action.itemId;
+                        })
+                    }
+                }
+            );
         default:
             return state;
 }
