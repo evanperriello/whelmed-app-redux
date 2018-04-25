@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import uuid from 'uuid';
 
 import './List.css';
-import TrashIcon from './../../img/173-bin.svg';
+
 
 import ListItem from '../ListItem/ListItem';
 import AddItem from '../AddItem/AddItem';
@@ -13,7 +13,6 @@ class List extends Component {
         super(props);
 
         this.handleAddItem = this.handleAddItem.bind(this);
-        this.handleDeleteItem = this.handleDeleteItem.bind(this);
     }
 
     handleAddItem(text){
@@ -21,12 +20,9 @@ class List extends Component {
             ...this.props.listItems,
             {text, id: uuid(), unfinished:true }
         ]
-        this.props.addItem(newItems, this.props.title, this.props.listId);
+        this.props.addItem(newItems, this.props.listId);
     }
 
-    handleDeleteItem(){
-        alert('Are you sure?');
-    }
 
     render(){
         const {title, listId, listItems} = this.props;
@@ -47,10 +43,7 @@ class List extends Component {
                         )
                     )}
                     <AddItem addItem={this.handleAddItem}/>
-                    <div className='single-list__delete' onClick={this.handleDeleteItem}> 
-                        <img src={TrashIcon} alt='trash can icon'/>
-                        <span>&nbsp; delete list</span>
-                    </div>
+                    
                 </ul>
             </div>
         );

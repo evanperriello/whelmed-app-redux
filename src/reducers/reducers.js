@@ -19,39 +19,10 @@ const sampleLists = {
             },
         ]
 
-    },
-    234: {
-        title: 'My not as lovely list',
-        items: [
-            {
-                text: 'Do a thing',
-                id: 'afdashfjhwoaeh',
-                unfinished: true
-            },
-            {
-                text: 'Do another thing',
-                id: 'xvbxchsfhd',
-                unfinished: false
-            },
-            {
-                text: 'Do yet a third thing',
-                id: 'aasdfdhh',
-                unfinished: true
-            },
-        ]
-
-    },
+    }
 }
-//export const addItem = (text) =>({
-//     type: 'ADD_ITEM',
-//     text,
-//     itemId: uuid()
-// });
 export const allLists = (state={}, action)=>{
     switch(action.type){
-        //TODO: Remove Sample Action Later
-        case 'SAMPLE_ACTION':
-            return (sampleLists);
         case 'ADD_LIST':
             return (
                 {...state,
@@ -64,13 +35,16 @@ export const allLists = (state={}, action)=>{
             );
         case 'DELETE_LIST':
             return (
-                state.filter(list=>{return (list.id !== action.listId)})
+                ((state, listId)=>{
+                    const {[listId]: foo, ...rest} = state;
+                    return rest;
+                })(state, action.listId)
             );
         case 'ADD_ITEM':
             return (
                 {...state,
                     [action.listId] : {
-                        title: action.title,
+                        ...state[action.listId],
                         items: action.items
                     }
                 }
