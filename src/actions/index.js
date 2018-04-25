@@ -5,10 +5,10 @@ export const sampleAction = () =>({
     type: 'SAMPLE_ACTION',
 });
 
-export const addItem = (listId, text) =>({
+export const addItem = (items, title, listId) =>({
     type: 'ADD_ITEM',
-    text,
-    itemId: uuid(),
+    items,
+    title,
     listId
 });
 //Delete an item

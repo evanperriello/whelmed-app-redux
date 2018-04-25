@@ -68,7 +68,12 @@ export const allLists = (state={}, action)=>{
             );
         case 'ADD_ITEM':
             return (
-                state
+                {...state,
+                    [action.listId] : {
+                        title: action.title,
+                        items: action.items
+                    }
+                }
             );
         default:
             return state;

@@ -13,14 +13,14 @@ class Lists extends Component {
         super(props);
     }
     render(){
-        const {lists, addList} = this.props;
+        const {lists, addList, addItem} = this.props;
         return (
             <div className="all-lists">
                 {Object.keys(lists).map((listId)=>{
                     const {title, items} = lists[listId];
                     return (
                         <div key={listId} className="list-container">
-                            <List listId={listId} title={title} listItems={items}/>
+                            <List listId={listId} title={title} listItems={items} addItem={addItem}/>
                         </div>
                     )
                 })}
@@ -37,8 +37,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
     return bindActionCreators(
         {
-            
-            addList: addList
+            addItem,
+            addList
         }, 
         dispatch
     );

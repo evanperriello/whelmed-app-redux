@@ -1,14 +1,33 @@
 import React, {Component} from 'react';
+import uuid from 'uuid';
+
 import './List.css';
 import TrashIcon from './../../img/173-bin.svg';
 
 import ListItem from '../ListItem/ListItem';
 import AddItem from '../AddItem/AddItem';
 
+ 
 class List extends Component {
     constructor(props){
         super(props);
+
+        this.handleAddItem = this.handleAddItem.bind(this);
+        this.handleDeleteItem = this.handleDeleteItem.bind(this);
     }
+
+    handleAddItem(text){
+        let newItems = [
+            ...this.props.listItems,
+            {text, id: uuid(), unfinished:true }
+        ]
+        this.props.addItem(newItems, this.props.title, this.props.listId);
+    }
+
+    handleDeleteItem(){
+        alert('Are you sure?');
+    }
+
     render(){
         const {title, listId, listItems} = this.props;
         return (
@@ -27,8 +46,8 @@ class List extends Component {
                             />
                         )
                     )}
-                    <AddItem/>
-                    <div className='single-list__delete'> 
+                    <AddItem addItem={this.handleAddItem}/>
+                    <div className='single-list__delete' onClick={this.handleDeleteItem}> 
                         <img src={TrashIcon} alt='trash can icon'/>
                         <span>&nbsp; delete list</span>
                     </div>
