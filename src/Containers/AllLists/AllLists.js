@@ -14,8 +14,14 @@ class Lists extends Component {
     constructor(props){
         super(props);
     }
+    handleDeleteList(listId, lists){
+        //Cool trick--use the rest spreading to divide the object into two objects: one with the key listId (here assigned to a variable foo) and one made up of all the other lists. Then return the one with the other lists, effectively deleting the one with key listId.
+        const {[listId]: foo, ...rest} = lists;
+        this.props.deleteList(rest);
+    }
+
     render(){
-        const {lists, addList, addItem, deleteList} = this.props;
+        const {lists, addList, addItem} = this.props;
         return (
             <div className="all-lists">
                 {Object.keys(lists).map((listId)=>{
@@ -29,7 +35,13 @@ class Lists extends Component {
                                 addItem={addItem} 
                                 deleteList={deleteList}/>
                                 <div 
-                                    className='single-list__delete' onClick={()=>{deleteList(listId)}}> 
+                                    className='single-list__delete'
+                                    onClick={
+                                        //we bind this inline instead of in the constructor so that it has access to the variables in this context.
+                                        this.handleDeleteList.bind(this, listId, lists)
+                                    } 
+                                >
+                                    
                                         <img src={TrashIcon} alt='trash can icon'
                                 />
                                 <span>&nbsp; delete list</span>

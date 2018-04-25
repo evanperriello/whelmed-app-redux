@@ -22,9 +22,9 @@ export const addList = (title)=>({
     listId: uuid() 
 });
 //Delete a list
-export const deleteList = (listId)=>({
+export const deleteList = (newLists)=>({
     type: 'DELETE_LIST',
-    listId
+    newLists
 });
 
 //Check off an item

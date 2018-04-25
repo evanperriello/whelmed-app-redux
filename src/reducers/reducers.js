@@ -35,10 +35,7 @@ export const allLists = (state={}, action)=>{
             );
         case 'DELETE_LIST':
             return (
-                ((state, listId)=>{
-                    const {[listId]: foo, ...rest} = state;
-                    return rest;
-                })(state, action.listId)
+                action.newLists
             );
         case 'ADD_ITEM':
             return (
