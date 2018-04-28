@@ -47,7 +47,8 @@
       box-shadow: 0 0 0 2pt rgba(67, 140, 53, 0.5); }
     .list-item__check::after {
       content: '\2714';
-      display: block;
+      display: flex;
+      align-items: center;
       height: 105%;
       width: 3rem;
       position: absolute;

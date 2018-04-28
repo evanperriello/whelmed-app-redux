@@ -1,6 +1,11 @@
 .list-container {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  align-items: center; }
+  .list-container__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
 
 .list-title {
   text-align: center;

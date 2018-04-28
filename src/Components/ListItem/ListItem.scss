@@ -56,7 +56,8 @@
         }
         &::after {
             content:'\2714';
-            display: block;
+            display: flex;
+            align-items:center;
             height: 105%;
             width: 3rem;
             position: absolute;

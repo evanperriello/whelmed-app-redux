@@ -35,7 +35,7 @@ class List extends Component {
     render(){
         const {title, listId, listItems} = this.props;
         return (
-            <div>
+            <div className='list-container__box'>
                 <h3 className="list-title">
                     {title}
                 </h3>
