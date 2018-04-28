@@ -4,15 +4,14 @@ import {connect} from 'react-redux';
 import List from '../../Components/List/List';
 import AddList from '../../Components/AddList/AddList';
 
-import {addList, addItem, deleteList, deleteItem} from '../../actions/index';
+import {addList, addItem, deleteList, deleteItem, checkItem} from '../../actions/index';
+
 import {bindActionCreators} from 'redux';
 import './AllLists.css';
 import TrashIcon from './../../img/173-bin.svg';
  
 class Lists extends Component {
-    constructor(props){
-        super(props);
-    }
+
     handleDeleteList(listId, lists){
         //Cool trick--use the rest spreading to divide the object into two objects: one with the key listId (here assigned to a variable foo) and one made up of all the other lists. Then return the one with the other lists, effectively deleting the one with key listId.
         const {[listId]: foo, ...rest} = lists;
@@ -20,7 +19,7 @@ class Lists extends Component {
     }
 
     render(){
-        const {lists, addList, addItem, deleteItem} = this.props;
+        const {lists, addList, addItem, deleteItem, checkItem, toggleShow} = this.props;
         return (
             <div className="all-lists">
                 {Object.keys(lists).map((listId)=>{
@@ -30,10 +29,13 @@ class Lists extends Component {
                             <List 
                                 listId={listId} 
                                 title={title} 
-                                listItems={items} 
+                                listItems={
+                                    toggleShow ? items: items.filter(item=>item.unfinished)
+                                } 
                                 addItem={addItem}
                                 deleteItem={deleteItem}
                                 deleteList={deleteList}
+                                checkItem={checkItem}
                             />
 
                             <div 
@@ -57,7 +59,8 @@ class Lists extends Component {
 }
 
 const mapStateToProps = state => ({
-        lists: state.allLists
+        lists: state.allLists,
+        toggleShow: state.toggleShow
     });
 
 const mapDispatchToProps = dispatch => {
@@ -66,7 +69,8 @@ const mapDispatchToProps = dispatch => {
             addItem,
             addList,
             deleteList,
-            deleteItem
+            deleteItem,
+            checkItem
         }, 
         dispatch
     );

@@ -1,42 +1,17 @@
-.list-item {
+.toggle-show {
+    width:100%;
     display:flex;
-    justify-content:space-between;
-    align-items:stretch;
-    list-style:none;
-    font-size:2.1rem;
-    padding:0;
-    border: 1px #ddd solid;
-    border-radius:.75rem;
-    margin-bottom:.75rem;
-
-    &__text {
-        line-height:2.5rem;
-        padding:.9rem 2rem;
-        margin-left:4rem;
-        max-width:50rem;
-
-        &--done {
-            text-decoration: line-through;
-            color:rgb(201, 198, 198);
-        }
+    padding:1rem;
+    justify-content: center;
+    
+    
+    &__text{
+        text-align: center;
+        font-weight: 300;
+        font-size: 2rem;
+        margin-right:2rem;
     }
-    &__delete {
-        border-radius: 0 .75rem .75rem 0;
-        border:none;
-        background-color:#DCDCDC;
-        color:white;
-        font-size:3rem;
-        line-height:1rem;
-        padding:0 1.5rem;
-        transition:all .2s;
-        &:hover {
-            cursor:pointer;
-        }
-        &:focus, &:hover{
-            background-color: rgba(252, 40, 40, 0.7);
-            outline:none;
-        } 
-    }
+
     &__check {
         appearance:none;
         position:relative;
@@ -57,13 +32,13 @@
         &::after {
             content:'\2714';
             display: block;
-            height: 105%;
+            height: 4rem;
             width: 3rem;
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             background-color:#DCDCDC;
-            border-radius:.75rem 0 0 .75rem;
+            border-radius:.75rem;
             font-size:3rem;
             padding-left:1rem;
             color: white;
@@ -80,4 +55,3 @@
 
     }
 }
-

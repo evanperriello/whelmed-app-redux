@@ -29,12 +29,13 @@ export const deleteList = (newLists)=>({
 });
 
 //Check off an item
-export const toggleItem = (itemId)=>({
-    type:'TOGGLE_ITEM',
-    itemId
+export const checkItem = (itemId, listId)=>({
+    type:'CHECK_ITEM',
+    itemId,
+    listId
 });
 
 //show/hide done
-export const toggleVisible = ()=>({
-    type: 'TOGGLE_VISIBLE'
+export const toggleShow = ()=>({
+    type: 'TOGGLE_SHOW'
 });

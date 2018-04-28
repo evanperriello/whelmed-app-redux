@@ -1,26 +1,3 @@
-const sampleLists = {
-    123:{
-        title: 'My lovely list',
-        items: [
-            {
-                text: 'Do a thing',
-                id: 'afdashfjhwoaeh',
-                unfinished: true
-            },
-            {
-                text: 'Do another thing',
-                id: 'xvbxchsfhd',
-                unfinished: false
-            },
-            {
-                text: 'Do yet a third thing',
-                id: 'aasdfdhh',
-                unfinished: true
-            },
-        ]
-
-    }
-}
 export const allLists = (state={}, action)=>{
     switch(action.type){
         case 'ADD_LIST':
@@ -52,12 +29,30 @@ export const allLists = (state={}, action)=>{
                     ...state,
                     [action.listId] : {
                         ...state[action.listId],
-                        items: state[action.listId].items.filter((item)=>{
-                            return item.id !== action.itemId;
-                        })
+                        items: state[action.listId].items.filter(
+                            item=>{
+                                return item.id !== action.itemId;
+                            }
+                        )
                     }
                 }
             );
+        case 'CHECK_ITEM':
+            return (
+                {
+                    ...state,
+                    [action.listId] : {
+                        ...state[action.listId],
+                        items: state[action.listId].items.map(
+                            item=>{
+                                return (item.id === action.itemId)?
+                                {...item, unfinished: !item.unfinished}:
+                                item
+                            }
+                        )
+                    }
+                }
+            )
         default:
             return state;
 }
@@ -75,65 +70,11 @@ export const userLists = (state=[], action)=>{
             return state;
     }
 }
-
-export const items = (state = [], action)=>{
+export const toggleShow = (state=true, action)=>{
     switch(action.type){
-        case 'ADD_ITEM':
-            return (
-                [
-                    ...state,
-                    {
-                        text: action.text,
-                        itemId: action.itemId,
-                        unfinished:true
-                    }
-                ]
-
-            );
-        case 'DELETE_ITEM':
-            return (
-                state.filter(
-                    (item)=>{
-                        return item.id !== action.itemId;
-                    }
-                )
-            );
-        case 'TOGGLE_ITEM':
-        //add in error handling here. This will break if there is a mismatch in id 
-            // const currentItem = state.find(object=> object.id === action.itemId);
-            // const placeInState = state.indexOf(currentItem);
-            // state[placeInState].unfinished = !state[placeInState].unfinished;
-            return (
-                state.map(()=>{})
-            );
-        
-        
+        case 'TOGGLE_SHOW':
+            return !state;
         default:
             return state;
     }
 }
-
-// export const allLists = (state=['List1', 'List2'], action) =>{
-//     switch(action.type){
-//         case 'ADD_LIST':
-//             return (
-//                 state
-//                 // [
-//                 //     ...state,
-//                 //     {
-//                 //         title: action.title,
-//                 //         id: action.listId,
-//                 //         items: []
-//                 //     }
-//                 // ]
-//             );
-//         default:
-//             return state;
-//     }
-// }
-
-
-//show/hide done
-export const toggleVisible = ()=>({
-    type: 'TOGGLE_VISIBLE'
-});

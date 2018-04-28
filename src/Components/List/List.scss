@@ -6,6 +6,7 @@
     text-align:center;
     font-weight:300;
     font-size:3rem;
+    max-width:50rem;
 }
 
 .single-list {
@@ -23,5 +24,6 @@
         color:rgb(179, 175, 175);
         display:flex;
         justify-content:center;
+        align-self:center;
     }
 }

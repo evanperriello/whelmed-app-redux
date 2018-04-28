@@ -28,6 +28,9 @@ class List extends Component {
     handleDeleteItem(itemId, listId){
         this.props.deleteItem(itemId, listId);
     }
+    handleCheckItem(itemId, listId){
+        this.props.checkItem(itemId, listId);
+    }
 
     render(){
         const {title, listId, listItems} = this.props;
@@ -45,6 +48,7 @@ class List extends Component {
                                 text={item.text} 
                                 unfinished={item.unfinished}
                                 deleteItem={this.handleDeleteItem.bind(this, item.id, listId)}
+                                checkItem={this.handleCheckItem.bind(this, item.id, listId)}
                             />
                         )
                     )}

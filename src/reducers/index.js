@@ -1,9 +1,10 @@
 import {combineReducers} from 'redux';
-import {allLists, userLists} from './reducers';
+import {allLists, userLists, toggleShow} from './reducers';
 
 const rootReducer = combineReducers({
     allLists,
-    userLists
+    userLists,
+    toggleShow
 })
 
 export default rootReducer;
